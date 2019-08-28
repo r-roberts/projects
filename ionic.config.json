@@ -1,5 +1,9 @@
 {
   "name": "test-login-app",
   "integrations": {},
-  "type": "angular"
+  "type": "angular",
+  "proxies":  [{
+    "path": "/api/",
+    "proxyUrl": "https://api.myfantasyleague.com/2019/login"
+}]
 }

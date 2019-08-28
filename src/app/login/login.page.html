@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Test App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="10">
+          <ion-item>
+            <ion-input type="text" placeholder="Username"  (input)="userName = $event.target.value" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input rounded type="password" (input)="password = $event.target.value" placeholder="Password" required></ion-input>
+          </ion-item>
+          <ion-button padding expand="block" color="primary" (click)="attemptLogin()">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
