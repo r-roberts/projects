@@ -1,0 +1,43 @@
+<!--Menu-->
+<ion-menu side="start" menuId="first" content-id="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-toggle>
+          <ion-button>
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+      <ion-title>home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--Menu Items-->
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/login">Test</ion-item>
+      <ion-item>Test</ion-item>
+      <ion-item>Test</ion-item>
+      <ion-item>Test</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!--Page Header-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--Menu Router Outlet-->
+<ion-router-outlet id="content"></ion-router-outlet>
+<ion-content> </ion-content>

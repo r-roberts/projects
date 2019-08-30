@@ -1,23 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Test App</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <form>
-    <ion-grid>
+
+<ion-content color="tertiary" >
+  <form (submit)="onSubmit()">
+    <ion-grid >
+      
       <ion-row justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="10">
+    
+        <ion-col  align-self-center class="ion-margin" size-md="6" size-lg="6" size-xs="12">
+
+          <div class="ion-text-center">
+              <h1 padding style="font-size: 2.1em" >Login</h1>
+          </div>
+            <div padding [formGroup]="loginForm">
           <ion-item>
-            <ion-input type="text" placeholder="Username"  (input)="userName = $event.target.value" required></ion-input>
+            <ion-input formControlName="name" class="login-input" rounded size-md="lg" margin type="text" placeholder="Username"  (input)="userName = $event.target.value" required></ion-input>
           </ion-item>
+          <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessages.name" >
+            <div class="error-message" *ngIf="inputHasError('name', validation.type)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+          </div>
           <ion-item>
-            <ion-input rounded type="password" (input)="password = $event.target.value" placeholder="Password" required></ion-input>
+            <ion-input formControlName="pass"  margin class="login-input"  type="password" (input)="password = $event.target.value" placeholder="Password" required></ion-input>
           </ion-item>
-          <ion-button padding expand="block" color="primary" (click)="attemptLogin()">Login</ion-button>
+          <div class="validation-errors">
+              <ng-container *ngFor="let validation of validationMessages.pass" >
+                <div class="error-message" *ngIf="inputHasError('pass', validation.type)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          <ion-button margin class="login-button" expand="block" color="primary" type="submit">Login</ion-button>
+          <ion-item>
+            <ion-label>Remember me?</ion-label>
+              <ion-toggle color="success" ></ion-toggle>
+          </ion-item>
+          <div class="validation-errors">
+              <ng-container *ngFor="let validation of validationMessages.badLogin" >
+                <div padding class="error-message ion-text-center" *ngIf="invalidLogin">
+                  {{ validation.message }}
+                </div>
+                </ng-container>
+            </div>
+        </div>
         </ion-col>
-      </ion-row>
+      </ion-row>      
     </ion-grid>
   </form>
 </ion-content>

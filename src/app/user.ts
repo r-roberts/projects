@@ -1,3 +1,3 @@
 export interface User {
-userId: string;
+MFL_USER_ID: string;
 }
